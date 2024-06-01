@@ -1,0 +1,19 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src\pipeline\stage_01_data_ingestion.py
+    deps:
+    - path: src\pipeline\stage_01_data_ingestion.py
+      hash: md5
+      md5: 1b72db3ec6bd893e42649e01939f52b9
+      size: 1081
+    outs:
+    - path: artifacts\DataIngestion\RSNA.zip
+      hash: md5
+      md5: 2b342f83dec5497304b527bd322bdbf1
+      size: 36458571
+    - path: artifacts\DataIngestion\images
+      hash: md5
+      md5: 23e2e528ade7e201804b85414b77d3be.dir
+      size: 37390152
+      nfiles: 600

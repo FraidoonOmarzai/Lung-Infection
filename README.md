@@ -30,3 +30,21 @@ pip install -r requirements.txt
     - using transfer learning and fine tuning
     - model evaluation
     - `note` we used the notebook in google colabs for experiment purposes and creating sample data for training
+
+```bash
+## Workflows
+- update the constants
+- updata the artifact_entity
+- update the config_entity
+- update the components
+- update the pipeline
+- update the dvc.yaml
+```
+
+8. **Data Ingestion**
+    - add s3_operations.py for uploading and downloading files from s3 bucket 
+    - we need to run the below command which allows to configure AWS credentials and settings
+    ```bash
+    aws configure 
+    ```
+    - follow the above workflows to get the data from the S3 bucket
