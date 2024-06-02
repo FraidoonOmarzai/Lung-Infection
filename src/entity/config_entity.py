@@ -9,7 +9,7 @@ class DataIngestionConfig:
     such as directory paths and S3 bucket names.
 
     args:
-        
+
     """
 
     def __init__(self) -> None:
@@ -18,6 +18,15 @@ class DataIngestionConfig:
         self.S3_FILE = S3_FILE
 
         self.DATA_INDESTION_PATH = os.path.join(DATA_INGESTION_DIR)
-        
+
         self.ZIP_PATH = os.path.join(self.DATA_INDESTION_PATH, S3_FILE)
         self.UNZIP_PATH = os.path.join(self.DATA_INDESTION_PATH, IMAGES_DIR)
+
+
+
+class ModelTrainingConfig:
+    def __init__(self) -> None:
+        self.MODEL_TRAINING_DIR = os.path.join(MODEL_TRAINING_DIR)
+        self.UNZIP_PATH = os.path.join(UNZIP_DIR)
+        self.SAVE_MODEL_PATH = os.path.join(self.MODEL_TRAINING_DIR, SAVE_MODEL_NAME)
+        

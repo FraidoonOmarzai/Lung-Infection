@@ -6,3 +6,10 @@ stages:
     outs:
       - artifacts\DataIngestion\images
       - artifacts\DataIngestion\RSNA.zip
+  
+  model_training_:
+    cmd: python src\pipeline\stage_02_model_training.py
+    deps:
+      - src\pipeline\stage_02_model_training.py
+    outs:
+      - artifacts\ModelTrainings\model.h5

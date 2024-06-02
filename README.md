@@ -48,3 +48,6 @@ pip install -r requirements.txt
     aws configure 
     ```
     - follow the above workflows to get the data from the S3 bucket
+
+9. **Model Training**
+    - train the model

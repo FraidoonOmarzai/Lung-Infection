@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src\pipeline\stage_01_data_ingestion.py
       hash: md5
-      md5: 1b72db3ec6bd893e42649e01939f52b9
-      size: 1081
+      md5: 63f7f48ff3f0edaa9eaa889cb103c131
+      size: 1372
     outs:
     - path: artifacts\DataIngestion\RSNA.zip
       hash: md5
@@ -17,3 +17,15 @@ stages:
       md5: 23e2e528ade7e201804b85414b77d3be.dir
       size: 37390152
       nfiles: 600
+  model_training_:
+    cmd: python src\pipeline\stage_02_model_training.py
+    deps:
+    - path: src\pipeline\stage_02_model_training.py
+      hash: md5
+      md5: caf9cde66f8dcf04f446be407f50052f
+      size: 1426
+    outs:
+    - path: artifacts\ModelTrainings\model.h5
+      hash: md5
+      md5: 97d2cd4a8e0b473f754cf318738c97ac
+      size: 21095184

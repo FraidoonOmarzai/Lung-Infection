@@ -10,6 +10,18 @@ import os
 
 
 class DataIngestion:
+    """Class for ingesting data from S3 and performing necessary operations.
+
+    This class facilitates the process of downloading data from an S3 bucket,
+    unzipping the downloaded data, and creating a data ingestion artifact.
+
+
+    Methods:
+        get_data_from_s3: Downloads data from S3 to the local system.
+        unzip_data: Unzips the downloaded data.
+        init_data_ingestion: Initializes the data ingestion process.
+    """
+
     def __init__(self,
                  data_ingestion_config: DataIngestionConfig) -> None:
         self.data_ingestion_config = data_ingestion_config
@@ -40,7 +52,7 @@ class DataIngestion:
 
     def init_data_ingestion(self):
         try:
-            if not os.path.exists(self.data_ingestion_config.DATA_INDESTION_PATH):
+            if not os.path.exists(self.data_ingestion_config.UNZIP_PATH):
                 self.get_data_from_s3()
                 self.unzip_data()
             else:
