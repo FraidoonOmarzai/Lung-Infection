@@ -8,4 +8,4 @@ class DataIngestionArtifacts:
     
 @dataclass
 class ModelTrainingArtifacts:
-    pass
+    MODEL_TRAINED_PATH: str

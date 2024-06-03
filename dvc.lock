@@ -22,10 +22,10 @@ stages:
     deps:
     - path: src\pipeline\stage_02_model_training.py
       hash: md5
-      md5: caf9cde66f8dcf04f446be407f50052f
-      size: 1426
+      md5: eb93fb6adcf7334d1d943a1ef215638d
+      size: 1456
     outs:
     - path: artifacts\ModelTrainings\model.h5
       hash: md5
-      md5: 97d2cd4a8e0b473f754cf318738c97ac
+      md5: b51b49e6eff39a4a4a152253a63c7cf8
       size: 21095184
