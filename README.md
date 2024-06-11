@@ -49,5 +49,15 @@ pip install -r requirements.txt
     ```
     - follow the above workflows to get the data from the S3 bucket
 
-9. **Model Training**
+```bash
+# for as many commits you want to undo
+git reset HEAD~
+```
+
+9. **Model Training and Evaluation**
     - train the model
+    - evaluate the model
+    - using mlflow 
+    ```bash
+    mlflow server --backend-store-uri sqlite:///mlflow.db  --host 0.0.0.0 -p 1234 --default-artifact-root ./mlflow_artifacts
+    ```

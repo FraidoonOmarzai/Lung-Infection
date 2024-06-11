@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/44787/Desktop/Lung-Infection/mlruns/251611162491236998/d7ed30f084f145078de035daa50e20f4/artifacts
+end_time: 1717885333521
+entry_point_name: ''
+experiment_id: '251611162491236998'
+lifecycle_stage: active
+run_id: d7ed30f084f145078de035daa50e20f4
+run_name: Lung Infection Experiments
+run_uuid: d7ed30f084f145078de035daa50e20f4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1717885233933
+status: 3
+tags: []
+user_id: '44787'

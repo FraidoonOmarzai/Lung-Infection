@@ -17,3 +17,12 @@ IMAGES_DIR: str = "images"
 MODEL_TRAINING_DIR: str = os.path.join(ARTIFACTS_DIR, 'ModelTrainings')
 UNZIP_DIR: str = os.path.join(DATA_INGESTION_DIR, IMAGES_DIR)
 SAVE_MODEL_NAME: str = 'model.h5'
+EPOCHS: int = 5
+
+
+# mlflow CONSTANTS
+artifacts_dir: str = "mlflow_artifacts"
+experiment_name: str = "Lung Infection Experiments"
+run_name: str = "Transfer_learning_Model"
+registered_model_name: str = "EfficientNetB0"
+remote_server_uri: str = "http://localhost:1234"

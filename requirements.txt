@@ -15,6 +15,7 @@ types-PyYAML
 scipy
 Flask
 Flask-Cors
+mlflow
 
 
 # local package
