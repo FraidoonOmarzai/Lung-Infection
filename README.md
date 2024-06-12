@@ -59,5 +59,8 @@ git reset HEAD~
     - evaluate the model
     - using mlflow 
     ```bash
-    mlflow server --backend-store-uri sqlite:///mlflow.db  --host 0.0.0.0 -p 1234 --default-artifact-root ./mlflow_artifacts
+    mlflow server --backend-store-uri sqlite:///mlflows.db  --host 0.0.0.0 -p 2024 --default-artifact-root ./mlflow_artifacts
     ```
+
+10. **Model Log Production**
+    - get the best model 

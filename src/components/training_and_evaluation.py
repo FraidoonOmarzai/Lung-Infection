@@ -66,7 +66,7 @@ class ModelTraining:
                           optimizer=tf.keras.optimizers.Adam(0.001),
                           metrics=["accuracy"])
 
-            mlflow.set_tracking_uri('http://localhost:1122')
+            mlflow.set_tracking_uri('http://localhost:2024')
             
             mlflow.set_experiment('Tensorflow Models')
 
