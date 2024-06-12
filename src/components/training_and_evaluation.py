@@ -57,8 +57,8 @@ class ModelTraining:
             train_data, test_data = self.prepare_data()
 
             logging.info("loading EfficientNet..._model")
-            model = ModelArchitecture().EfficientNetB0_model()
-            # model = ModelArchitecture().EfficientNetV2M_model()
+            # model = ModelArchitecture().EfficientNetB0_model()
+            model = ModelArchitecture().EfficientNetV2M_model()
             
 
             logging.info("model compile...")
@@ -66,8 +66,7 @@ class ModelTraining:
                           optimizer=tf.keras.optimizers.Adam(0.001),
                           metrics=["accuracy"])
 
-            # mlflow.set_registry_uri('http://localhost:1234')
-            mlflow.set_tracking_uri('http://localhost:1234')
+            mlflow.set_tracking_uri('http://localhost:1122')
             
             mlflow.set_experiment('Tensorflow Models')
 
@@ -76,7 +75,7 @@ class ModelTraining:
                 logging.info("model fit...")
                 model.fit(train_data,
                           batch_size=32,
-                          epochs=20,
+                          epochs=10,
                           validation_data=test_data)
 
                 # evaluate the model
@@ -86,9 +85,9 @@ class ModelTraining:
                 with mlflow.start_run(nested=True):
                     mlflow.log_param('batch size', 32)
                 with mlflow.start_run(nested=True):
-                    mlflow.log_param('epochs', 20)
+                    mlflow.log_param('epochs', 10)
 
-                mlflow.log_metric('accuracy', results[1])
+                mlflow.log_metric('Evaluation Accuracy', results[1])
 
                 tracking_url_type_store = urlparse(
                     mlflow.get_tracking_uri()).scheme
@@ -99,7 +98,7 @@ class ModelTraining:
                     # please refer to the doc for more information:
                     # https://mlflow.org/docs/latest/model-registry.html#api-workflow
                     mlflow.tensorflow.log_model(
-                        model, "model", registered_model_name="EfficientNetB0")
+                        model, "model", registered_model_name="EfficientNetV2M")
                 else:
                     mlflow.tensorflow.log_model(model, "model")
 
