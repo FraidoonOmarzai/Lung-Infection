@@ -25,4 +25,8 @@ artifacts_dir: str = "mlflow_artifacts"
 experiment_name: str = "Lung Infection Experiments"
 run_name: str = "Transfer_learning_Model"
 registered_model_name: str = "EfficientNetB0"
-remote_server_uri: str = "http://localhost:1234"
+remote_server_uri: str = "http://localhost:2024"
+
+
+# log production models CONSTANTS
+LOG_PRO_MODEL_DIR: str = "LogProductionModel"

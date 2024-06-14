@@ -9,3 +9,8 @@ class DataIngestionArtifacts:
 @dataclass
 class ModelTrainingArtifacts:
     MODEL_TRAINED_PATH: str
+    
+    
+@dataclass
+class LogProductionModel:
+    MODEL_PRODUCTION_PATH: str

@@ -30,3 +30,9 @@ class ModelTrainingConfig:
         self.UNZIP_PATH = os.path.join(UNZIP_DIR)
         self.SAVE_MODEL_PATH = os.path.join(self.MODEL_TRAINING_DIR, SAVE_MODEL_NAME)
         
+        
+
+class LogProductionModelConfig:
+    def __init__(self) -> None:
+        self.LOG_PRO_MODEL_DIR = os.path.join(LOG_PRO_MODEL_DIR)
+        

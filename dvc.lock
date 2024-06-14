@@ -24,3 +24,15 @@ stages:
       hash: md5
       md5: 51afec8cc04b5351f40369b923c80d56
       size: 1558
+  log_prod_model:
+    cmd: python src\pipeline\stage_03_log_production_model.py
+    deps:
+    - path: src\pipeline\stage_03_log_production_model.py
+      hash: md5
+      md5: cf43ff18d4c8d75c99b7bb8afda3e698
+      size: 1177
+    outs:
+    - path: artifacts\LogProductionModel\mlflow_model.h5
+      hash: md5
+      md5: 92e6d676f81853ebb0870b419b1b4ebf
+      size: 17663231

@@ -63,4 +63,6 @@ git reset HEAD~
     ```
 
 10. **Model Log Production**
-    - get the best model 
+    - get the best model
+    - best of the accuracy on the validation set, registered model in different stages
+    - get the best model and save it in local disk
