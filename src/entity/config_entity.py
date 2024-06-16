@@ -23,16 +23,29 @@ class DataIngestionConfig:
         self.UNZIP_PATH = os.path.join(self.DATA_INDESTION_PATH, IMAGES_DIR)
 
 
-
 class ModelTrainingConfig:
+    """A class to hold configuration parameters for model training.
+
+    This class provides a convenient way to configure parameters related to model training and evaluation.
+
+    args:
+
+    """
+
     def __init__(self) -> None:
         self.MODEL_TRAINING_DIR = os.path.join(MODEL_TRAINING_DIR)
         self.UNZIP_PATH = os.path.join(UNZIP_DIR)
-        self.SAVE_MODEL_PATH = os.path.join(self.MODEL_TRAINING_DIR, SAVE_MODEL_NAME)
-        
-        
+        self.SAVE_MODEL_PATH = os.path.join(
+            self.MODEL_TRAINING_DIR, SAVE_MODEL_NAME)
+
 
 class LogProductionModelConfig:
+    """A class to hold configuration parameters for log production model.
+    args:
+
+    """
+
     def __init__(self) -> None:
-        self.LOG_PRO_MODEL_DIR = os.path.join(LOG_PRO_MODEL_DIR)
-        
+        self.LOG_PROD_MODEL_DIR = os.path.join(LOG_PRO_MODEL_DIR)
+        self.LOG_SAVE_MODEL_PATH = os.path.join(
+            self.LOG_PROD_MODEL_DIR, LOG_SAVE_MODEL_NAME)

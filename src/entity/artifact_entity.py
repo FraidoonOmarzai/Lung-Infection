@@ -12,5 +12,5 @@ class ModelTrainingArtifacts:
     
     
 @dataclass
-class LogProductionModel:
+class LogProductionModelArtifacts:
     MODEL_PRODUCTION_PATH: str

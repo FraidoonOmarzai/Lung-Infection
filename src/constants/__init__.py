@@ -1,6 +1,5 @@
 import os
 
-
 # COMMON CONSTANTS
 ARTIFACTS_DIR: str = os.path.join('artifacts')
 BUCKET_NAME: str = 'rsnadataset'
@@ -21,12 +20,13 @@ EPOCHS: int = 5
 
 
 # mlflow CONSTANTS
-artifacts_dir: str = "mlflow_artifacts"
-experiment_name: str = "Lung Infection Experiments"
-run_name: str = "Transfer_learning_Model"
-registered_model_name: str = "EfficientNetB0"
-remote_server_uri: str = "http://localhost:2024"
+ARTIFACTS_DIR: str = "mlflow_artifacts"
+EXPERIMENT_NAME: str = "Lung Infection Experiments"
+RUN_NAME: str = "Transfer_learning_Model"
+REGISTERED_MODEL_NAME: str = "EfficientNet"
+REMOTE_SERVER_URI: str = "http://localhost:2024"
 
 
 # log production models CONSTANTS
-LOG_PRO_MODEL_DIR: str = "LogProductionModel"
+LOG_PRO_MODEL_DIR: str = os.path.join(ARTIFACTS_DIR, "LogProductionModel")
+LOG_SAVE_MODEL_NAME: str = "mlflow_model.h5"

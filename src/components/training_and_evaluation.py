@@ -3,6 +3,7 @@ from src.logger import logging
 from src.entity.config_entity import ModelTrainingConfig
 from src.entity.artifact_entity import ModelTrainingArtifacts
 from src.model.model import ModelArchitecture
+from src.constants import *
 
 import mlflow
 from urllib.parse import urlparse
@@ -57,20 +58,18 @@ class ModelTraining:
             train_data, test_data = self.prepare_data()
 
             logging.info("loading EfficientNet..._model")
-            # model = ModelArchitecture().EfficientNetB0_model()
-            model = ModelArchitecture().EfficientNetV2M_model()
-            
+            model = ModelArchitecture().EfficientNetB0_model()
+            # model = ModelArchitecture().EfficientNetV2M_model()
 
             logging.info("model compile...")
             model.compile(loss="binary_crossentropy",
                           optimizer=tf.keras.optimizers.Adam(0.001),
                           metrics=["accuracy"])
 
-            mlflow.set_tracking_uri('http://localhost:2024')
-            
-            mlflow.set_experiment('Tensorflow Models')
+            mlflow.set_tracking_uri(REMOTE_SERVER_URI)
+            mlflow.set_experiment(EXPERIMENT_NAME)
 
-            with mlflow.start_run(run_name="Lung Infection Experiments") as mlops_run:
+            with mlflow.start_run(run_name=RUN_NAME) as mlops_run:
 
                 logging.info("model fit...")
                 model.fit(train_data,
@@ -92,27 +91,24 @@ class ModelTraining:
                 tracking_url_type_store = urlparse(
                     mlflow.get_tracking_uri()).scheme
                 if tracking_url_type_store != "file":
-
                     # Register the model
-                    # There are other ways to use the Model Registry, which depends on the use case,
-                    # please refer to the doc for more information:
-                    # https://mlflow.org/docs/latest/model-registry.html#api-workflow
                     mlflow.tensorflow.log_model(
-                        model, "model", registered_model_name="EfficientNetV2M")
+                        model, "model", registered_model_name=REGISTERED_MODEL_NAME)
                 else:
                     mlflow.tensorflow.log_model(model, "model")
 
-            # logging.info("model evaluation....")
-            # results_model = model.evaluate(test_data)
-            # logging.info(
-            #     f"Model_loss: {results_model[0]}, Model_Accuracy{results_model[1]}")
+            logging.info("Current trained model evaluation....")
+            results_model = model.evaluate(test_data)
+            logging.info(
+                f"Model_loss: {results_model[0]}, Model_Accuracy{results_model[1]}")
 
-            # os.makedirs(
-            #     self.model_training_config.MODEL_TRAINING_DIR, exist_ok=True)
-            # self.save_model(self.model_training_config.SAVE_MODEL_PATH, model)
+            os.makedirs(
+                self.model_training_config.MODEL_TRAINING_DIR, exist_ok=True)
+            self.save_model(self.model_training_config.SAVE_MODEL_PATH, model)
+            logging.info("trained model saved successfully")
 
-            # model_training_artifacts = ModelTrainingArtifacts(
-            #     self.model_training_config.SAVE_MODEL_PATH)
-            # return model_training_artifacts
+            model_training_artifacts = ModelTrainingArtifacts(
+                self.model_training_config.SAVE_MODEL_PATH)
+            return model_training_artifacts
         except Exception as e:
             raise CustomException(e, sys)

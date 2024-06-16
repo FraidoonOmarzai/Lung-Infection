@@ -22,21 +22,19 @@ class ModelTrainingPipeline:
         try:
             logging.info("Starting model training pipeline...")
             model_training = ModelTraining(self.model_training_config)
-            model_training.init_model_training()
-            
-            # model_training_artifacts = model_training.init_model_training()
-            # return model_training_artifacts
-            
+            model_training_artifacts = model_training.init_model_training()
+
+            return model_training_artifacts
+
         except Exception as e:
             raise CustomException(e, sys)
 
     def run_pipeline(self):
-        
+
         logging.info("Running training pipeline...")
-        self.start_model_training()
-        # model_training_artifacts: ModelTrainingArtifacts = self.start_model_training()
-        
-        logging.info("Model pipeline done...")
+        model_training_artifacts: ModelTrainingArtifacts = self.start_model_training()
+
+        logging.info("Model training pipeline done...")
 
 
 if __name__ == '__main__':
