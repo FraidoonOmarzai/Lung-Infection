@@ -20,18 +20,19 @@ class ModelTraining:
     def prepare_data(self):
         try:
 
-            train_dir = os.path.join(
-                self.model_training_config.UNZIP_PATH, 'train')
-            test_dir = os.path.join(
-                self.model_training_config.UNZIP_PATH, 'val')
+            train_dir = self.model_training_config.TRAIN_DIR
+            test_dir = self.model_training_config.VAL_DIR
             # Setup data inputs
-            IMG_SIZE = (224, 224)
+            IMG_SIZE = self.model_training_config.IMAGE_SIZE
+            BATCH_SIZE = self.model_training_config.BATCH_SIZE
             train_data = tf.keras.preprocessing.image_dataset_from_directory(train_dir,
                                                                              label_mode="binary",
+                                                                             batch_size=BATCH_SIZE,
                                                                              image_size=IMG_SIZE)
 
             test_data = tf.keras.preprocessing.image_dataset_from_directory(test_dir,
                                                                             label_mode="binary",
+                                                                            batch_size=BATCH_SIZE,
                                                                             image_size=IMG_SIZE,
                                                                             shuffle=False)  # don't shuffle test data for prediction analysis
 
@@ -49,6 +50,7 @@ class ModelTraining:
     def save_model(path: Path, model: tf.keras.Model):
         model.save(path)
         logging.info("model saved")
+        
 
     def init_model_training(self):
         try:
@@ -73,8 +75,7 @@ class ModelTraining:
 
                 logging.info("model fit...")
                 model.fit(train_data,
-                          batch_size=32,
-                          epochs=10,
+                          epochs=self.model_training_config.EPOCHS,
                           validation_data=test_data)
 
                 # evaluate the model
@@ -82,9 +83,9 @@ class ModelTraining:
                 logging.info(f"Model evaluation: {results}")
 
                 with mlflow.start_run(nested=True):
-                    mlflow.log_param('batch size', 32)
+                    mlflow.log_param('batch size', BATCH_SIZE)
                 with mlflow.start_run(nested=True):
-                    mlflow.log_param('epochs', 10)
+                    mlflow.log_param('epochs', EPOCHS)
 
                 mlflow.log_metric('Evaluation Accuracy', results[1])
 

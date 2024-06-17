@@ -35,8 +35,14 @@ class ModelTrainingConfig:
     def __init__(self) -> None:
         self.MODEL_TRAINING_DIR = os.path.join(MODEL_TRAINING_DIR)
         self.UNZIP_PATH = os.path.join(UNZIP_DIR)
+        self.TRAIN_DIR = os.path.join(self.UNZIP_PATH, 'train')
+        self.VAL_DIR = os.path.join(self.UNZIP_PATH, 'val')
         self.SAVE_MODEL_PATH = os.path.join(
             self.MODEL_TRAINING_DIR, SAVE_MODEL_NAME)
+        
+        self.IMAGE_SIZE = IMAGE_SIZE
+        self.BATCH_SIZE = BATCH_SIZE
+        self.EPOCHS = EPOCHS
 
 
 class LogProductionModelConfig:
