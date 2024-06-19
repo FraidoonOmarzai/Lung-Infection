@@ -21,7 +21,7 @@ class LogProductionModel:
             mlflow.set_tracking_uri(REMOTE_SERVER_URI)
             
             # get all the experiments details
-            runs = mlflow.search_runs(experiment_ids=[1])
+            runs = mlflow.search_runs(experiment_ids=[2])
             logging.info(f"runs: {runs}")
             
             # get the experiment with highest validation accuracy
@@ -33,9 +33,7 @@ class LogProductionModel:
             logging.info(f"highest run id: {highest_run_id}")
             
             
-            
-            # 
-            model_name = 'EfficientNetV2M'
+            model_name = REGISTERED_MODEL_NAME
 
             client = MlflowClient()
             for mv in client.search_model_versions(f"name='{model_name}'"):
@@ -79,5 +77,6 @@ class LogProductionModel:
             log_production_model_artificats = LogProductionModelArtifacts(
                 self.log_model_prod_config.LOG_SAVE_MODEL_PATH
             )
+            return log_production_model_artificats
         except Exception as e:
             raise CustomException(e, sys)
