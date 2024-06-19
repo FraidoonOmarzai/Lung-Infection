@@ -14,3 +14,8 @@ class ModelTrainingArtifacts:
 @dataclass
 class LogProductionModelArtifacts:
     MODEL_PRODUCTION_PATH: str
+    
+    
+@dataclass
+class ModelPusherArtifact:
+    bucket_name: str

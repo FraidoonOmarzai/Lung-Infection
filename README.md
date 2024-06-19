@@ -66,3 +66,6 @@ git reset HEAD~
     - get the best model
     - best of the accuracy on the validation set, registered model in different stages
     - get the best model and save it in local disk
+
+11. **Model Pusher**
+    - store the best model in S3 bucket

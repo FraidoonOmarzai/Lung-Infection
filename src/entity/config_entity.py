@@ -55,3 +55,23 @@ class LogProductionModelConfig:
         self.LOG_PROD_MODEL_DIR = os.path.join(LOG_PRO_MODEL_DIR)
         self.LOG_SAVE_MODEL_PATH = os.path.join(
             self.LOG_PROD_MODEL_DIR, LOG_SAVE_MODEL_NAME)
+
+
+class ModelPusherConfig:
+    """A class to hold configuration parameters for model pusher.
+
+    Attributes:
+        model_train_dir (str): Path to the training directory.
+        bucket_name (str): Name of the cloud storage bucket.
+        best_model (str): Directory name for the best model within the cloud storage.
+
+    Methods:
+        __init__():
+            Initialize ModelPusherConfig with default or provided settings.
+    """
+
+    def __init__(self):
+        self.LOG_PROD_MODEL_DIR = os.path.join(LOG_PRO_MODEL_DIR)
+
+        self.BUCKET_NAME = BUCKET_NAME
+        # self.BEST_MODEL_DIR = BEST_MODEL_DIR

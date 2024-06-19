@@ -2,6 +2,7 @@ from src.exception import CustomException
 from src.logger import logging
 from src.entity.artifact_entity import LogProductionModelArtifacts
 from src.entity.config_entity import LogProductionModelConfig
+from src.cloud_storage.s3_operations import S3Operation
 from src.constants import *
 
 import mlflow
@@ -59,7 +60,8 @@ class LogProductionModel:
                     
             # load the model with highest accuracy and save it
             loaded_model = mlflow.pyfunc.load_model(logged_model)
-
+            
+            # stored the best model locally    
             os.makedirs(self.log_model_prod_config.LOG_PROD_MODEL_DIR, exist_ok=True)
             # joblib.dump(loaded_model, 
             #             self.log_model_prod_config.LOG_SAVE_MODEL_PATH)
