@@ -39,7 +39,7 @@ class ModelTrainingConfig:
         self.VAL_DIR = os.path.join(self.UNZIP_PATH, 'val')
         self.SAVE_MODEL_PATH = os.path.join(
             self.MODEL_TRAINING_DIR, SAVE_MODEL_NAME)
-        
+
         self.IMAGE_SIZE = IMAGE_SIZE
         self.BATCH_SIZE = BATCH_SIZE
         self.EPOCHS = EPOCHS
@@ -61,7 +61,7 @@ class ModelPusherConfig:
     """A class to hold configuration parameters for model pusher.
 
     Attributes:
-        model_train_dir (str): Path to the training directory.
+        log_prod_model_dir (str): Path to log_prod_model directory.
         bucket_name (str): Name of the cloud storage bucket.
         best_model (str): Directory name for the best model within the cloud storage.
 
@@ -74,4 +74,4 @@ class ModelPusherConfig:
         self.LOG_PROD_MODEL_DIR = os.path.join(LOG_PRO_MODEL_DIR)
 
         self.BUCKET_NAME = BUCKET_NAME
-        # self.BEST_MODEL_DIR = BEST_MODEL_DIR
+        self.BEST_MODEL_DIR = BEST_MODE_DIR

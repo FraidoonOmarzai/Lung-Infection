@@ -5,14 +5,13 @@ from src.entity.config_entity import ModelPusherConfig
 from src.entity.artifact_entity import ModelPusherArtifact
 
 import sys
-from pathlib import Path
+
 
 class ModelPusher:
     """ The ModelPusher class facilitates the process of pushing machine learning models to a cloud storage service.
 
     Attributes:
         - model_pusher_config (ModelPusherConfig): An instance of ModelPusherConfig containing configuration parameters for the model pusher.
-        - model_training_artifact (ModelTrainingArtifact): An instance of ModelTrainingArtifact containing artifacts related to model training.
         - s3_operation (S3Operation): An instance of S3Operation responsible for interacting with Amazon S3.
     """
 
@@ -24,7 +23,7 @@ class ModelPusher:
         try:
             self.s3_operation.sync_folder_to_s3(self.model_pusher_config.LOG_PROD_MODEL_DIR,
                                                 self.model_pusher_config.BUCKET_NAME,
-                                                self.model_pusher_config.best_model_dir)
+                                                self.model_pusher_config.BEST_MODEL_DIR)
 
             model_pusher_artifact = ModelPusherArtifact(
                 self.model_pusher_config.BUCKET_NAME

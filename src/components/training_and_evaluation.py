@@ -14,6 +14,17 @@ import sys
 
 
 class ModelTraining:
+    """A class for training DL models.
+
+    Attributes:
+        - model_training_config (ModelTrainingConfig): Configuration parameters for model training.
+
+    Methods:
+        - prepare_data(): Prepare the images for training.
+        - save_model(): Save the model locally.
+        - init_model_training(): Load the model architecture, use mlflow and traing the model.
+    """
+
     def __init__(self, model_training_config: ModelTrainingConfig):
         self.model_training_config = model_training_config
 
@@ -50,7 +61,6 @@ class ModelTraining:
     def save_model(path: Path, model: tf.keras.Model):
         model.save(path)
         logging.info("model saved")
-        
 
     def init_model_training(self):
         try:

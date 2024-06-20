@@ -5,6 +5,7 @@ ARTIFACTS_DIR: str = os.path.join('artifacts')
 BUCKET_NAME: str = 'rsnadataset'
 S3_DATA_FOLDER: str = 'data'
 S3_FILE: str = 'RSNA.zip'
+BEST_MODE_DIR: str = 'best_mode'
 
 
 # DATA INGESTION CONSTANTS

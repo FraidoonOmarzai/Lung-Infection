@@ -11,8 +11,8 @@ class ModelPusherlPipeline:
     """Class representing a model pusher pipeline.
 
     Methods:
-        start_model_pusher: Starts the model_pusher process.
-        run_pipeline: Runs the pusher pipeline.
+        start_model_pusher(): Starts the model_pusher process.
+        run_pipeline(): Runs the pusher pipeline.
     """
 
     def __init__(self):
@@ -31,10 +31,10 @@ class ModelPusherlPipeline:
 
     def run_pipeline(self):
 
-        logging.info("Running log prod pipeline...")
+        logging.info("Running model pusher pipeline...")
         model_pusher_artificats: ModelPusherArtifact = self.start_model_pusher()
 
-        logging.info("Log Production Model pipeline done...")
+        logging.info("model pusher pipeline done...")
 
 
 if __name__ == '__main__':
