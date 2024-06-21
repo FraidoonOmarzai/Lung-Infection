@@ -20,3 +20,8 @@ stages:
       - src\pipeline\stage_03_log_production_model.py
     outs:
       - artifacts\LogProductionModel\mlflow_model.h5
+
+  model_pusher:
+    cmd: python src\pipeline\stage_04_model_pusher.py
+    deps:
+      - src\pipeline\stage_04_model_pusher.py

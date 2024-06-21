@@ -41,3 +41,10 @@ stages:
       hash: md5
       md5: 183ed7ff9fa848a82e92cf7875891b76
       size: 17663231
+  model_pusher:
+    cmd: python src\pipeline\stage_04_model_pusher.py
+    deps:
+    - path: src\pipeline\stage_04_model_pusher.py
+      hash: md5
+      md5: 3736b355d4bdb5948b0162e546e87799
+      size: 1366
