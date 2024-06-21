@@ -69,3 +69,8 @@ git reset HEAD~
 
 11. **Model Pusher**
     - store the best model in S3 bucket
+
+12. Add everything to train_pipeline
+    - create src\pipeline\train_pipeline.py
+    - add code to demo.py
+    - run ```python demo.py```

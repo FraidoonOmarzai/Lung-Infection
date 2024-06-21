@@ -1,11 +1,11 @@
 from src.exception import CustomException
-from src.pipeline.stage_01_data_ingestion import DataIngestionPipeline
+from src.pipeline.train_pipeline import TrainingPipeline
 import sys
 
 class StartTraining:
     try:
-        data_ingestion_pipeline = DataIngestionPipeline()
-        data_ingestion_pipeline.run_pipeline()
+        training_pipeline = TrainingPipeline()
+        training_pipeline.run_pipeline()
     except Exception as e:
         raise CustomException(e, sys)
         
