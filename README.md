@@ -74,3 +74,8 @@ git reset HEAD~
     - create src\pipeline\train_pipeline.py
     - add code to demo.py
     - run ```python demo.py```
+
+
+13. **WEB App Creation and prediction pipeline**
+    - create an application using stramlit
+    - create prediction pipeline

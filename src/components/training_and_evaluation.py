@@ -104,9 +104,9 @@ class ModelTraining:
                 if tracking_url_type_store != "file":
                     # Register the model
                     mlflow.tensorflow.log_model(
-                        model, "model", registered_model_name=REGISTERED_MODEL_NAME)
+                        model, "model.h5", registered_model_name=REGISTERED_MODEL_NAME)
                 else:
-                    mlflow.tensorflow.log_model(model, "model")
+                    mlflow.tensorflow.log_model(model, "model.h5")
 
             logging.info("Current trained model evaluation....")
             results_model = model.evaluate(test_data)

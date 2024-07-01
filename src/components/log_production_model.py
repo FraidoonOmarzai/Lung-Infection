@@ -10,6 +10,7 @@ from pprint import pprint
 import joblib
 import os
 import sys
+from pathlib import Path
 
 
 class LogProductionModel:
@@ -70,15 +71,19 @@ class LogProductionModel:
                     )
 
             # load the model with highest accuracy and save it
-            loaded_model = mlflow.pyfunc.load_model(logged_model)
+            # loaded_model = mlflow.pyfunc.load_model(logged_model)
+            loaded_model = mlflow.tensorflow.load_model(logged_model)
+            
 
             # stored the best model locally
             os.makedirs(
                 self.log_model_prod_config.LOG_PROD_MODEL_DIR, exist_ok=True)
             # joblib.dump(loaded_model,
             #             self.log_model_prod_config.LOG_SAVE_MODEL_PATH)
-            joblib.dump(loaded_model,
-                        "artifacts\LogProductionModel\mlflow_model.h5")
+            # joblib.dump(loaded_model,
+            #             "artifacts\LogProductionModel\mlflow_model.h5")
+            
+            loaded_model.save(Path("artifacts\LogProductionModel\mlflow_model.h5"))
             logging.info("model saved!")
 
         except Exception as e:
